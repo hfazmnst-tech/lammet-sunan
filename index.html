@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لَمّة سنن | رفقة وأُنس وذكريات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #102D27;
+  --green2: #19483B;
+  --gold: #D7BD83;
+  --white: #F8F7F1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Tajawal', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 20%, #245344 0%, transparent 60%),
+    linear-gradient(135deg, #0B211C, #153C31 55%, #0B211C);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 20px;
+  border: 1px solid rgba(215,189,131,.25);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.container {
+  width: 92%;
+  max-width: 1100px;
+  padding: 35px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.top-label {
+  color: var(--gold);
+  font-size: clamp(14px, 2vw, 19px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.small-line {
+  width: 75px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 auto 25px;
+}
+
+h1 {
+  font-size: clamp(55px, 10vw, 105px);
+  font-weight: 900;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.25;
+  text-shadow: 0 5px 35px rgba(0,0,0,.25);
+}
+
+.subtitle {
+  color: var(--gold);
+  font-size: clamp(21px, 3.5vw, 34px);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.description {
+  color: #E2E9E2;
+  font-size: clamp(16px, 2.3vw, 23px);
+  margin-top: 18px;
+  line-height: 1.8;
+}
+
+.countdown-title {
+  color: var(--gold);
+  font-size: clamp(18px, 2.5vw, 25px);
+  margin-top: 48px;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.unit {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(215,189,131,.4);
+  border-radius: 18px;
+  padding: 20px 8px;
+  backdrop-filter: blur(8px);
+}
+
+.number {
+  font-size: clamp(38px, 7vw, 72px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.unit-label {
+  font-size: clamp(14px, 2vw, 20px);
+  color: #FFFFFF;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.event-date {
+  margin-top: 35px;
+  color: var(--gold);
+  font-size: clamp(17px, 2.4vw, 23px);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #D7E0D9;
+  font-size: clamp(13px, 1.8vw, 18px);
+}
+
+@media(max-width:600px) {
+  .countdown { gap: 7px; }
+  .unit { padding: 16px 3px; border-radius: 12px; }
+  .container { padding: 20px 5px; }
+  .countdown-title { margin-top: 35px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top-label">جمعية سنن التعليمية</div>
+
+  <div class="small-line"></div>
+
+  <h1>لَمّة سنن</h1>
+
+  <div class="subtitle">رِفقةٌ وأُنسٌ وذكريات</div>
+
+  <div class="description">
+    لقاء يجمعنا على المحبة والأخوة<br>
+    لنصنع معاً ذكريات جميلة لا تُنسى
+  </div>
+
+  <div class="countdown-title">
+    بقي على موعد لَمّة سنن
+  </div>
+
+  <div class="countdown">
+
+    <div class="unit">
+      <div class="number" id="days">00</div>
+      <div class="unit-label">يوم</div>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="hours">00</div>
+      <div class="unit-label">ساعة</div>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="minutes">00</div>
+      <div class="unit-label">دقيقة</div>
+    </div>
+
+    <div class="unit">
+      <div class="number" id="seconds">00</div>
+      <div class="unit-label">ثانية</div>
+    </div>
+
+  </div>
+
+  <div class="event-date">
+    السبت | 28 نوفمبر 2026م | الساعة 6 مساءً
+  </div>
+
+  <div class="footer">
+    بكم تكتمل اللمّة.. وبصحبتكم تحلو الرحلة
+  </div>
+
+</div>
+
+<script>
+const eventDate = new Date("2026-11-28T18:00:00+03:00").getTime();
+
+function updateCountdown() {
+
+  const now = Date.now();
+  const difference = eventDate - now;
+
+  if (difference <= 0) {
+    document.querySelector(".countdown-title").textContent =
+      "حان موعد لَمّة سنن!";
+
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    return;
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
